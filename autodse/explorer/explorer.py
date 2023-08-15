@@ -169,7 +169,7 @@ class FastExplorer(Explorer):
             duplicated_iters = 0
 
             # Evaluate design points using level 1 to fast check if it is suitable for HLS
-            self.log.debug('Evaluating %d design points: Level 1', len(jobs))
+            # self.log.debug('Evaluating %d design points: Level 1', len(jobs))
             pending: List[Job] = []
             for key, result in self.evaluator.submit(jobs, 1):
                 if result.ret_code == Result.RetCode.PASS:
@@ -184,7 +184,7 @@ class FastExplorer(Explorer):
             if pending:
                 # Evaluate design points using level 2 that runs HLS
                 self.log.debug('Evaluating %d design points: Level 2', len(pending))
-                for key, result in self.evaluator.submit(pending, 2):
+                for key, result in self.evaluator.submit(pending, 1):
                     self.update_best(result)
                     results[key] = result
             else:

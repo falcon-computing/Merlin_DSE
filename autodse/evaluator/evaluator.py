@@ -333,19 +333,20 @@ class MerlinEvaluator(Evaluator):
 
         job = self.create_job()
         assert job is not None
-        sche_rets = self.scheduler.run([job], self.analyzer.desire('hls'), self.commands['hls'],
-                                       self.timeouts['hls'])
-        assert len(sche_rets) == 1
-        _, ret = sche_rets[0]
-        if ret == Result.RetCode.PASS:
-            scope_map = self.analyzer.analyze_scope(job, self.auto_map)  # type: ignore
-            if scope_map is not None:
-                self.scope_map = scope_map
-                self.db.commit('scope-map', scope_map)
-                return True
+        # sche_rets = self.scheduler.run([job], self.analyzer.desire('hls'), self.commands['hls'],
+        #                               self.timeouts['hls'])
+        # assert len(sche_rets) == 1
+        # _, ret = sche_rets[0]
+        # if ret == Result.RetCode.PASS:
+        #scope_map = self.analyzer.analyze_scope(job, self.auto_map)  # type: ignore
+        #if scope_map is not None:
+        #    self.scope_map = scope_map
+        #    self.db.commit('scope-map', scope_map)
+        #    return True
 
-        self.log.error('Failed to build the scope map')
-        return False
+        # self.log.error('Failed to build the scope map')
+        # return False
+        return True
 
     def dup_hls_result(self, result: HLSResult) -> HLSResult:
         """Clone the given HLS result and mark as duplicated.

@@ -105,12 +105,12 @@ class PythonSubprocessScheduler(Scheduler):
                 # in order to send the kill signal when timeout or interrupt because proc.kill()
                 # is not working when shell=True.
                 # See https://stackoverflow.com/questions/4789837 for details.
-                proc = Popen('cd {0}_work; {1}'.format(jobs[idx].path, cmd),
-                             stdout=DEVNULL,
-                             stderr=DEVNULL,
-                             shell=True,
-                             start_new_session=True)
-                procs.append((idx, proc))
+                # proc = Popen('cd {0}_work; {1}'.format(jobs[idx].path, 'echo ' + cmd),
+                #              stdout=DEVNULL,
+                #              stderr=DEVNULL,
+                #              shell=True,
+                #              start_new_session=True)
+                # procs.append((idx, proc))
 
             if not procs:
                 break

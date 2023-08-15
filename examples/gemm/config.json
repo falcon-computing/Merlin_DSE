@@ -14,7 +14,7 @@
     "evaluate.max-util.DSP": 0.8,
     "evaluate.max-util.LUT": 0.8,
     "evaluate.max-util.FF": 0.8,
-    "search.algorithm.name": "gradient",
+    "search.algorithm.name": "exhaustive",
     "search.algorithm.exhaustive.batch-size": 2,
     "search.algorithm.gradient.latency-threshold": 64,
     "search.algorithm.gradient.fine-grained-first": true,

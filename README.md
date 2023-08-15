@@ -28,3 +28,8 @@ It includes:
 * Python 3.6+
 
 * Redis database
+
+For MidEnd Testing,
+1. Launch DSGenerator
+2. Copy over output (rose__xxx.cpp and ds_info.json) to DSE working directory, rename rose__xxx.cpp to xxx.cpp
+3. Run DSE
